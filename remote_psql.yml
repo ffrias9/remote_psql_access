@@ -16,6 +16,10 @@
         src: "{{ file2 }}"
         dest: "{{ dest }}"
 
+    - name: "Agregar regla al firewall"
+      shell: "firewall-cmd --add-service=postgresql --permanent"
+      become: true
+
     - name: "Reiniciar postgresql"
       shell: "service postgresql restart"
       become: true
