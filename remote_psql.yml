@@ -20,6 +20,10 @@
       shell: "firewall-cmd --add-service=postgresql --permanent"
       become: true
 
+    - name: "Reiniciar firewall"
+      shell: "systemctl restart firewalld.service"
+      become: true
+
     - name: "Reiniciar postgresql"
       shell: "service postgresql restart"
       become: true
