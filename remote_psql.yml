@@ -15,6 +15,9 @@
       copy:
         src: "{{ file2 }}"
         dest: "{{ dest }}"
+        
+    - name: "Iniciar y habilitar firewalld"
+      shell: "systemctl start firewalld.service && systemctl enable firewalld.service"
 
     - name: "Agregar regla al firewall"
       shell: "firewall-cmd --add-service=postgresql --permanent"
