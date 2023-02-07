@@ -1,0 +1,12 @@
+---
+  - name: Install postgresql in local machine
+    hosts: localhost
+    become: True
+    roles:
+      - local
+
+  - name: Enable remote access to psql servers
+    hosts: all
+    become: True
+    roles:
+      - remote

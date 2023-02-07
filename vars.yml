@@ -1,3 +1,0 @@
-file1: /home/vagrant/ansible/remote_psql_access/postgresql.conf
-file2: /home/vagrant/ansible/remote_psql_access/pg_hba.conf
-dest: /var/lib/pgsql/data

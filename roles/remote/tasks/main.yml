@@ -1,0 +1,25 @@
+---
+  - name: "Copiar archivo1 al servidor"
+    copy:
+      src: postgresql.conf
+      dest: "{{ dest }}"
+
+  - name: "Copiar archivo2 al servidor"
+    copy:
+      src: pg_hba.conf
+      dest: "{{ dest }}"
+        
+  - name: "Iniciar y habilitar firewalld"
+    shell: "systemctl start firewalld.service && systemctl enable firewalld.service"
+
+  - name: "Agregar regla al firewall"
+    shell: "firewall-cmd --add-service=postgresql --permanent"
+    become: true
+
+  - name: "Reiniciar firewall"
+    shell: "systemctl restart firewalld.service"
+    become: true
+
+  - name: "Reiniciar postgresql"
+    shell: "service postgresql restart"
+    become: true

@@ -1,0 +1,6 @@
+---
+  - name: Install postgresql in local machine
+    yum:
+      name: postgresql
+      state: present
+      update_cache: True
