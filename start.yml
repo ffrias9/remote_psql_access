@@ -1,6 +1,6 @@
 ---
   - name: Install postgresql in local machine
-    hosts: localhost
+    hosts: 192.168.10.50
     become: True
     roles:
       - local
